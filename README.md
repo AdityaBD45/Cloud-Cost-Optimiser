@@ -1,57 +1,110 @@
-# Cloud Cost Optimizer - Frontend
+# ☁️ Cloud Cost Optimiser
 
-A modern dashboard for analyzing and optimizing cloud infrastructure costs. Upload your cloud usage data to get AI-powered insights and reduce spending.
+A modern, AI-powered web application for **analyzing, predicting, and optimizing cloud infrastructure costs**.  
+Users can upload cloud usage data (CSV) to get **7-day cost predictions**, **waste detection**, and **actionable optimization insights**.
 
-## Features
+---
 
-This project is designed for simple testing, no cloud credentials, and no complex setup — just upload a CSV file.
+## 🚀 Live Demo
 
-🚀 Features
-🔮 Cost Prediction
+### 🔹 Frontend (Vercel)
+👉 https://cloud-cost-optimiser-lemon.vercel.app/
 
-Predicts next 7 days of infrastructure cost
+### 🔹 Backend API (Render)
+👉 https://cloudcost-optimizer-api.onrender.com/docs
 
-Detects cost trend direction
+> ⚠️ **Note:**  
+> The backend is hosted on Render Free Tier.  
+> The **first request may take up to 30–60 seconds** due to cold start.  
+> Subsequent requests are fast.
 
-Estimates CPU & memory usage patterns
+---
 
-Suggests optimization opportunities
+## 🧠 Key Features
 
-♻️ Waste Detection
+- 📊 **7-Day Cost Prediction**
+- 🧹 **Idle Resource & Waste Detection**
+- 💡 **Optimization Recommendations**
+- 📂 **CSV-based input (simple & flexible)**
+- ⚡ **Modern React UI**
+- 🧪 **ML-powered backend (FastAPI + Python)**
 
-Identifies idle / underutilized periods
+---
 
-Calculates wasted cost
+## 📂 CSV-Based Input
 
-Estimates monthly savings
+Upload a CSV file with the following **required columns**:
 
-Provides actionable recommendations
-
-📂 CSV-First Design
-
-No dashboards or agents required
-
-Just upload a CSV file
-
-Ideal for students, demos, and analysis
-
-🧠 Tech Stack
-Layer	Technology
-Backend	FastAPI
-ML / Analytics	Pandas, NumPy, Scikit-Learn, LightGBM
-API Server	Uvicorn
-Containerization	Docker
-Hosting	Render (Free Tier)
-Frontend	React (separate repo)
-📂 CSV-Based Input (Easy Testing)
-✅ Required CSV Columns
+```csv
 timestamp,cpu_usage,memory_usage,disk_usage,cost_per_hour
 
-Column	Description
-timestamp	Date & time (YYYY-MM-DD HH:MM:SS)
-cpu_usage	CPU usage (%)
-memory_usage	Memory usage (%)
-disk_usage	Disk usage (%)
-cost_per_hour	Hourly cost (USD)
-🧪 Sample CSV File (For Testing)
 
+✅ Sample CSV (Ready to Use)
+
+A ready-to-use sample CSV file is included in this repository:
+sample_generated.csv
+
+👉 How to use it:
+
+Click sample_generated.csv in GitHub
+
+Click Download
+
+Upload it directly in the web app
+
+This allows anyone to test the project instantly.
+
+🖥️ Frontend Tech Stack
+
+⚛️ React (Vite)
+
+🎨 CSS (custom styling)
+
+📈 Recharts
+
+🔗 Axios
+
+🌐 Deployed on Vercel
+
+⚙️ Backend Tech Stack
+
+🐍 Python
+
+⚡ FastAPI
+
+📊 Pandas, NumPy
+
+🤖 Scikit-learn, LightGBM
+
+🐳 Docker
+
+☁️ Deployed on Render
+
+
+🧪 How It Works (High Level)
+
+User uploads cloud usage CSV
+
+Backend parses and validates data
+
+ML models analyze trends and patterns
+
+API returns:
+
+Cost predictions
+
+Idle resource detection
+
+Optimization recommendations
+
+Frontend visualizes results clearly
+
+📦 Local Development (Optional)
+Frontend
+npm install
+npm run dev
+
+
+Backend
+pip install -r requirements.txt
+uvicorn api.main:app --reload
