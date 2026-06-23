@@ -1,4 +1,4 @@
-const BASE_URL = "https://cloudcost-optimizer-api.onrender.com";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://cloudcost-optimizer-api.onrender.com";
 
 async function postCsv(endpoint, file) {
   const formData = new FormData();
@@ -17,8 +17,6 @@ async function postCsv(endpoint, file) {
   return response.json();
 }
 
-export const predictCost = (file) =>
-  postCsv("/predict-cost", file);
+export const predictCost = (file) => postCsv("/predict-cost", file);
 
-export const detectWaste = (file) =>
-  postCsv("/detect-waste", file);
+export const detectWaste = (file) => postCsv("/detect-waste", file);

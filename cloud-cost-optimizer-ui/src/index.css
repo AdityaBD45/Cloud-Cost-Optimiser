@@ -1,14 +1,82 @@
-/* index.css */
-body {
+/* index.css - design tokens */
+
+:root {
+  /* Color - "ledger paper" palette */
+  --paper: #F1F3EC;          /* sage-tinted page background */
+  --paper-raised: #FBFCF8;   /* cards sitting above the paper */
+  --ink: #1F2A24;            /* primary text - deep green-black ink */
+  --ink-soft: #5C6B61;       /* secondary text / labels */
+  --ink-faint: #8B978C;      /* tertiary text / placeholders */
+  --rule: #D6DECF;           /* ledger rule lines / dividers */
+  --rule-soft: #E4E9DD;
+
+  --copper: #B8742E;         /* primary accent - cost figures, CTAs */
+  --copper-soft: #EFE0CB;    /* copper tint for backgrounds/badges */
+  --forest: #2F6B5E;         /* savings / optimization accent */
+  --forest-soft: #DCE9E2;
+  --brick: #A33B2E;          /* risk / alert accent */
+  --brick-soft: #F1DCD6;
+
+  /* Type */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-mono: 'IBM Plex Mono', 'SF Mono', Consolas, monospace;
+  --font-body: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Layout */
+  --max-width: 1080px;
+  --radius: 3px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+}
+
+body {
+  background: var(--paper);
+  background-image:
+    linear-gradient(var(--rule-soft) 1px, transparent 1px);
+  background-size: 100% 32px;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin: 0;
+  color: var(--ink);
+}
+
+code, .mono {
+  font-family: var(--font-mono);
+}
+
+button {
+  font-family: var(--font-body);
+}
+
+a {
+  color: var(--copper);
+}
+
+/* visible keyboard focus, kept consistent everywhere */
+:focus-visible {
+  outline: 2px solid var(--copper);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
 }
